@@ -1,0 +1,11 @@
+sudo mkdir -p /var/lib/dpkg/{alternatives,info,parts,triggers,updates} && 
+sudo cp /var/backups/dpkg.status.0 /var/lib/dpkg/status && 
+apt-get download dpkg && 
+sudo dpkg -i dpkg*.deb && 
+sudo dpkg -i dpkg*.deb && 
+apt-get download base-files && 
+sudo dpkg -i base-files*.deb && 
+apt -y --fix-broken install &&
+apt-get update && 
+apt-get check && 
+dpkg --configure -a && apt update && apt-get install --only-upgrade -y docker-ce docker-ce-cli && docker --version
